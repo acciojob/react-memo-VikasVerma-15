@@ -2,19 +2,12 @@ import React, { useMemo } from "react";
 
 const UseMemo = () => {
   const value = useMemo(() => {
-    let sum = 0;
-    for (let i = 0; i < 1000000000; i++) {
-      sum++;
-    }
-    return sum;
+    let x = 0;
+    for (let i = 0; i < 100000000; i++) x++;
+    return x;
   }, []);
 
-  return (
-    <div>
-      <h2>Expensive Calculation</h2>
-      <p>{value}</p>
-    </div>
-  );
+  return <p>{value}</p>;
 };
 
 export default UseMemo;

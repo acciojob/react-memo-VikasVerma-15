@@ -3,8 +3,8 @@ import React from "react";
 const SkillList = ({ skills }) => {
   return (
     <ul>
-      {skills.map((skill, index) => (
-        <li key={index}>{skill}</li>
+      {skills.map((s, i) => (
+        <li key={i}>{s}</li>
       ))}
     </ul>
   );

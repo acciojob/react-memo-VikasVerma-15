@@ -5,44 +5,41 @@ import SkillList from "./ReactMemo";
 const App = () => {
   const [todos, setTodos] = useState([]);
   const [count, setCount] = useState(0);
-  const [task, setTask] = useState("");
-
-  const addTodo = () => {
-    setTodos([...todos, "New todo"]);
-  };
-
-  const addCustomTodo = () => {
-    if (task.length > 5) {
-      setTodos([...todos, task]);
-      setTask("");
-    }
-  };
+  const [skill, setSkill] = useState("");
 
   return (
     <div>
-      <h1>React.useMemo</h1>
+      <h1>Use Memo testing</h1>
 
-      <h2>My todos</h2>
-      <button onClick={addTodo}>Add Todo</button>
+      <button onClick={() => setTodos([...todos, "New todo"])}>
+        Add todo
+      </button>
 
       <ul>
-        {todos.map((todo, index) => (
-          <li key={index}>{todo}</li>
+        {todos.map((t, i) => (
+          <li key={i}>{t}</li>
         ))}
       </ul>
 
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>+</button>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <p>{count}</p>
 
-      <UseMemo count={count} />
+      <UseMemo />
 
-      <h1>React.memo</h1>
+      <h1>React Memo testing</h1>
 
       <input
-        value={task}
-        onChange={(e) => setTask(e.target.value)}
+        value={skill}
+        onChange={(e) => setSkill(e.target.value)}
       />
-      <button onClick={addCustomTodo}>Add Skill</button>
+
+      <button
+        onClick={() =>
+          skill.length > 5 && setTodos([...todos, skill])
+        }
+      >
+        Add Skill
+      </button>
 
       <SkillList skills={todos} />
     </div>
