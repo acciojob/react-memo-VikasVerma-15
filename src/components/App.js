@@ -11,15 +11,16 @@ const App = () => {
     <div>
       <h1>Use Memo testing</h1>
 
-      <button onClick={() => setTodos([...todos, "New todo"])}>
-        Add todo
-      </button>
+      <button onClick={() => setTodos([...todos, "new todo"])}>
+  Add Todo
+</button>
 
-      <ul>
-        {todos.map((t, i) => (
-          <li key={i}>{t}</li>
-        ))}
-      </ul>
+<ul>
+  {todos.map((t, i) => (
+    <li key={i}>{t}</li>
+  ))}
+</ul>
+
 
       <button onClick={() => setCount(count + 1)}>Increment</button>
       <p>{count}</p>
